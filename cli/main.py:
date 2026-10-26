@@ -1,0 +1,31 @@
+import argparse
+
+def main():
+    parser = argparse.ArgumentParser(
+        description="DevToolkit - Developer Productivity Utilities"
+    )
+
+    parser.add_argument(
+        "--version",
+        action="version",
+        version="DevToolkit 0.1.0"
+    )
+
+    subparsers = parser.add_subparsers(dest="command")
+
+    subparsers.add_parser(
+        "hello",
+        help="Check whether DevToolkit is working"
+    )
+
+    args = parser.parse_args()
+
+    if args.command == "hello":
+        print("DevToolkit is working!")
+        print("Welcome to your developer toolbox.")
+    elif args.command is None:
+        parser.print_help()
+
+
+if __name__ == "__main__":
+    main()
